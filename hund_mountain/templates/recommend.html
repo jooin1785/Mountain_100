@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mountain_100:추천</title>
+        {% load static %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/detail_styles.css' %}" rel="stylesheet" />
+        <!-- Core theme JS-->
+        <script src="{% static 'js/recommend_scripts.js' %}"></script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">100대 명산 정보</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/zoom_1/1">Map</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/list/">Information</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page"  href="/recommend/">Recommendation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page content-->
+        <div class="container mt-5">
+
+            <!-- Post content-->
+            <div class="row">
+                <article class="col-lg-10  offset-6 translate-middle-x">
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1 text-center">100대 명산 추천받기</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2 text-center m-sm-3">원하는 조건에 따라 자신에게 맞는 산을 찾아보세요</div>
+                        <!-- Post categories-->
+                    </header>
+                </article>
+            </div>
+
+            <div class="row">
+                <!-- 키워드로 추천받기-->
+                <div class="d-grid gap-3 p-5 col-6 mx-auto">
+                    <!-- Name -->
+                    <div class="col">
+                        <div class="p-3 border bg-light text-center h4 fw-bolder">키워드로 추천받기</div>
+                    </div>
+                    <!-- Img -->
+                    <section class="mb-3">
+                        <img class="img-thumbnail" src="../static/assets/img/keyword.png" style="width:100%; height:25rem; object-fit:cover;" alt="...">
+                    </section>
+                    <!-- Link -->
+                    <a href="/recommend/analyze_1">
+                    <button type="button" class="btn btn-link fw-bolder offset-6 translate-middle-x fs-3" style="word-break: keep-all;">추천 산 확인하기</button>
+                    </a>
+                </div>
+
+                <div class="d-grid gap-3 p-5 col-6 mx-auto">
+                    <!-- Name -->
+                    <div class="col">
+                        <div class="p-3 border bg-light text-center h4 fw-bolder">날씨로 추천받기</div>
+                    </div>
+                    <!-- Img -->
+                    <section class="mb-3">
+                        <img class="img-thumbnail" src="../static/assets/img/w_icon.png" style="width:100%; height:25rem; object-fit:cover;" alt="...">
+                    </section>
+                    <!-- Link -->
+                    <a href="/recommend/analyze_2/">
+                    <button type="button" class="btn btn-link fw-bolder offset-6 translate-middle-x fs-3" style="word-break: keep-all;">추천 산 확인하기</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br><br>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MultiCampus DataScience/Engineering 15,16 Team_Matrix</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mountain_100:상세페이지</title>
+        {% load static %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/detail_styles.css' %}" rel="stylesheet" />
+        <!-- Core theme JS-->
+        <script src="{% static 'js/detail_scripts.js' %}"></script>
+    </head>
+
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">100대 명산 정보</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/zoom_1/1">Map</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/list/">Information</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/recommend/">Recommendation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">{{ mountain1.name }}</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">{{ mountain1.address }}</div>
+                            <!-- Post categories-->
+                        </header>
+
+                        <!-- Preview image figure-->
+                        <figure class="mb-4 container">
+                            <img class="img-fluid rounded" style="width: 100%; height: 500px; padding: 0 4rem 0 4rem; object-fit: cover;" src="../static/assets/mt_img/mt_{{ mountain1.id }}.jpg" alt="..." />
+                        </figure>
+
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <h2 class="fw-bolder mb-4 mt-5">100대 명산 선정이유</h2>
+                            <p class="fs-5 mb-4">{{ mountain3.areatreason }}</p>
+                            <h2 class="fw-bolder mb-4 mt-5">개관</h2>
+                            <p class="fs-5 mb-4" id="overview_con">{{ mountain3.overview }}</p>
+                            <h2 class="fw-bolder mb-4 mt-5">상세설명</h2>
+                            <p class="fs-5 mb-4" id="details_con">{{ mountain3.details }}</p>
+                        </section>
+
+                        <!-- Table content-->
+                        <table class="table table-hover text-center">
+                            <thead class="table-dark">
+                                <th scope="col">INFO</th>
+                                <th scope="col">CONTENT</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">소재지</th>
+                                    <td>{{ mountain1.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">산행시간</th>
+                                    <td>{{ mountain2.m_time }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">산높이</th>
+                                    <td>{{ mountain1.ht }}m</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">난이도</th>
+                                    <td>{{ mountain2.m_level }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+
+
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">명산 검색</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <form id="mountain_form" action="/detail/0" method="post">{% csrf_token %}
+                                    <input class="form-control" type="text" name="mt_name" style="width: 75%; float: left;" placeholder="산 이름을 입력하세요..." aria-label="산 이름을 입력하세요..." aria-describedby="button-search" />
+                                    <button class="btn btn-primary" id="button-search" style="float: right;" type="submit">검색</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- information widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">산행 안전 수칙</div>
+                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-link fw-bolder" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              산행 안전 수칙 확인하기
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">산행 안전수칙</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      • 산행하기 전에 날씨 등 필요한 정보를 충분히 수집하라.<br>
+                                      • 계획에 알맞은 장비, 의복, 식량을 준비하고 체온유지에 최대한 신경을 쓰라.<br>
+                                      • 특히 노약자, 여자, 어린이 등은 가능한 나홀로 산행을 자제하고, 동행할 경우 일행 중 가장 처지는 사람을 기준으로 산행을 하라.<br>
+                                      • 산행은 아침 일찍 시작하고 해지기 1시간 전에 마쳐야 하며, 오후 6시(동절기 5시) 이후의 산행이 불가피한 경우 숲길안내센터, 경찰서 등에 사전 신고하라.<br>
+                                      • 자신의 체력과 능력을 과신하지 말고 하루의 산행은 8시간 이내로 하고 체력의 3할은 항상 비축하라.<br>
+                                      • 짐은 적게 하고 손에 물건을 들지 말라.• 지정된 숲길(등산로, 트레킹길) 외에는 들어가지 말라.<br>
+                                      • 산행 중 한꺼번에 너무 많이 먹지 말고 조금씩 자주 먹어라.<br>
+                                      • 지도 및 안내리플릿을 휴대하고 수시로 위치를 확인하고, 조난 시 조난 구조용 스마트폰 앱 및 119로 위치 전송 구조 요청하라.<br>
+                                      • 길을 잘못 들었다고 판단되면 빨리 돌아서라.<br>
+                                      • 산행하기 전에 날씨 등 필요한 정보를 충분히 수집하라.<br>
+                                      • 계획에 알맞은 장비, 의복, 식량을 준비하고 체온유지에 최대한 신경을 쓰라.<br>
+                                      • 특히 노약자, 여자, 어린이 등은 가능한 나홀로 산행을 자제하고, 동행할 경우 일행 중 가장 처지는 사람을 기준으로 산행을 하라.<br>
+                                      • 산행은 아침 일찍 시작하고 해지기 1시간 전에 마쳐야 하며, 오후 6시(동절기 5시) 이후의 산행이 불가피한 경우 숲길안내센터, 경찰서 등에 사전 신고하라.<br>
+                                      • 자신의 체력과 능력을 과신하지 말고 하루의 산행은 8시간 이내로 하고 체력의 3할은 항상 비축하라.<br>
+                                      • 짐은 적게 하고 손에 물건을 들지 말라.<br>
+                                      • 지정된 숲길(등산로, 트레킹길) 외에는 들어가지 말라.<br>
+                                      • 산행 중 한꺼번에 너무 많이 먹지 말고 조금씩 자주 먹어라.<br>
+                                      • 지도 및 안내리플릿을 휴대하고 수시로 위치를 확인하고, 조난 시 조난 구조용 스마트폰 앱 및 119로 위치 전송 구조 요청하라.<br>
+                                      • 길을 잘못 들었다고 판단되면 빨리 돌아서라.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+
+
+                    <!-- public transportation widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">주변 대중교통</div>
+                        <!-- Button trigger modal -->
+                            <button type="button" onclick="window.open('/detail/p_transit/{{ id }}');" class="btn btn-link fw-bolder">
+                              지도에서 확인하기
+                            </button>
+                    </div>
+
+
+                    <!-- weather widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">날씨 정보</div>
+
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h5 class="card-title fw-bold">현 재 날 씨</h5>
+                            </div>
+                            <div class="text-center">
+                                <img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.nowWeather }}.png" alt="{{ vo.sun_stuffs.nowWeather }}날씨" class="card-image" style="width:150px; height:150px;">
+                            </div>
+                            <p class="card-text text-center">
+                                {% if vo.sun_stuffs.nowTemp == '-' %}
+                                    <div class="card">
+                                      <div class="card-body text-center">
+                                        현재 날씨 정보를 제공하지 않는 지역입니다.
+                                      </div>
+                                    </div>
+
+                                {% else %}
+                                    <img src="../static/assets/img/weather/icon/temperature.png" class="weather-icon" data-bs-toggle="tooltip" data-bs-html="true" title="{{ vo.dto.name }}" style="width: 30px; height: 30px;">  현재 기온 : {{ vo.sun_stuffs.nowTemp }}℃ <br>
+                                    <img src="../static/assets/img/weather/icon/sunrise_color.png" class="weather-icon" style="width: 30px; height: 30px;">  일출 시간 : {{ vo.sun_stuffs.sunriseTime }}<br>
+                                    <img src="../static/assets/img/weather/icon/sunset_color.png" class="weather-icon" style="width: 30px; height: 30px;">  일몰 시간 : {{ vo.sun_stuffs.sunsetTime }}<br>
+                                {% endif %}
+                            </p>
+
+                            <div>
+                                <table class="table table-sm table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>날짜</th>
+                                            <th>오늘</th>
+                                            <th>내일</th>
+                                            <th>모레</th>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>날씨</th>
+                                            <td><img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.nowWeather }}.png" alt="" class="weather-icon" style="width: 30px; height: 30px;"></td>
+                                            {% if vo.sun_stuffs.nowTemp == '-' %}
+                                                <td><img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.nowWeather }}.png" alt="" class="weather-icon" style="width: 30px; height: 30px;"></td>
+                                                <td><img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.nowWeather }}.png" alt="" class="weather-icon" style="width: 30px; height: 30px;"></td>
+                                            {% else %}
+                                                <td><img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.tommorow_weather.wcond }}.png" alt="" class="weather-icon" style="width: 30px; height: 30px;"></td>
+                                                <td><img src="../static/assets/img/weather/icon/{{ vo.sun_stuffs.after_tommorow_weather.wcond }}.png" alt="" class="weather-icon" style="width: 30px; height: 30px;"></td>
+                                            {% endif %}
+                                        </tr>
+                                        <tr>
+                                            <th>기온</th>
+                                            {% if vo.sun_stuffs.nowTemp == '-' %}
+                                                <td>{{ vo.sun_stuffs.tw.temp }}℃</td>
+                                            {% else %}
+                                                <td>{{ vo.sun_stuffs.nowTemp }}℃</td>
+                                            {% endif %}
+                                            <td>{{ vo.sun_stuffs.tommorow_weather.temp }}℃</td>
+                                            <td>{{ vo.sun_stuffs.after_tommorow_weather.temp }}℃</td>
+                                        </tr>
+                                        <tr>
+                                            <th>습도</th>
+                                            <td>{{ vo.sun_stuffs.tw.humi }}%</td>
+                                            <td>{{ vo.sun_stuffs.tommorow_weather.humi }}%</td>
+                                            <td>{{ vo.sun_stuffs.after_tommorow_weather.humi }}%</td>
+                                        </tr>
+                                        <tr>
+                                            <th>풍속</th>
+                                            <td>{{ vo.sun_stuffs.tw.wspd }}m/s</td>
+                                            <td>{{ vo.sun_stuffs.tommorow_weather.wspd }}m/s</td>
+                                            <td>{{ vo.sun_stuffs.after_tommorow_weather.wspd }}m/s</td>
+                                        </tr>
+                                        <tr>
+                                            <th>강우확률</th>
+                                            <td>{{ vo.sun_stuffs.tw.rainp }}%</td>
+                                            <td>{{ vo.sun_stuffs.tommorow_weather.rainp }}%</td>
+                                            <td>{{ vo.sun_stuffs.after_tommorow_weather.rainp }}%</td>
+                                        </tr>
+
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MultiCampus DataScience/Engineering 15,16 Team_Matrix</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

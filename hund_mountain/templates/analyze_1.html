@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mountain_100:키워드로 추천</title>
+        {% load static %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/detail_styles.css' %}" rel="stylesheet" />
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">100대 명산 정보</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/zoom_1/1">Map</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/list/">Information</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/recommend/">Recommendation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="col text-center mb-4 offset-6 translate-middle-x">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1 text-center">키워드별 추천 산</h1>
+                            <!-- Post categories-->
+                            <a class="badge bg-danger text-decoration-none link-light" href="#!">봄</a>
+                            <a class="badge bg-primary text-decoration-none link-light" href="#!">여름</a>
+                            <a class="badge bg-warning text-decoration-none link-light" href="#!">가을</a>
+                            <a class="badge bg-dark text-decoration-none link-light" href="#!">겨울</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">역사</a>
+                            <a class="badge bg-success text-decoration-none link-light" href="#!">자연</a>
+                            <a class="badge bg-info text-decoration-none link-light" href="#!">휴식</a>
+                        </header>
+
+                        <!-- wordcloud 버튼 -->
+                        <div id="carouselExampleDark" class="col text-center carousel carousel-dark slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                          </div>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="10000">
+                                <img src="../../static/assets/img/wordcloud_img/spring2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                  <p><strong>봄철 추천 산</strong> (테마 : 봄 WordCloud)
+                                  <br><br>
+                                      <button type="button" class="btn btn-outline-danger">Keyword</button> :
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">봄</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">진달래</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">철쭉</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">꽃</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">3월</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">4월</a>
+                                      <a class="badge bg-danger text-decoration-none link-light rounded-pill" href="#!">5월</a>
+                                  </p>
+                              </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="2000">
+                              <img src="../../static/assets/img/wordcloud_img/여름2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                <p><strong>여름철 추천 산</strong> (테마 : 여름 WordCloud)
+                                  <br><br>
+                                      <button type="button" class="btn btn-outline-primary">Keyword</button> :
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">여름</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">계곡</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">폭포</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">동굴</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">얼음</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">6월</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">7월</a>
+                                      <a class="badge bg-primary text-decoration-none link-light rounded-pill" href="#!">8월</a>
+                                  </p>
+                                </p>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img src="../../static/assets/img/wordcloud_img/가을2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                <p><strong>가을철 추천 산</strong> (테마 : 가을 WordCloud)
+                                <br><br>
+                                      <button type="button" class="btn btn-outline-warning">Keyword</button> :
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">가을</a>
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">억새</a>
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">단풍</a>
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">9월</a>
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">10월</a>
+                                      <a class="badge bg-warning text-decoration-none link-light rounded-pill" href="#!">11월</a>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img src="../../static/assets/img/wordcloud_img/겨울2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                <p><strong>겨울철 추천 산</strong> (테마 : 겨울 WordCloud)
+                                <br><br>
+                                      <button type="button" class="btn btn-outline-dark">Keyword</button> :
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">설경</a>
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">눈</a>
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">설산</a>
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">12월</a>
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">1월</a>
+                                      <a class="badge bg-dark text-decoration-none link-light rounded-pill" href="#!">2월</a>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img src="../../static/assets/img/wordcloud_img/역사2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                  <p><strong>역사 테마 추천 산</strong> (테마 : 역사 WordCloud)
+                                  <br><br>
+                                      <button type="button" class="btn btn-outline-secondary">Keyword</button> :
+                                      <a class="badge bg-secondary text-decoration-none link-light rounded-pill" href="#!">문화유산</a>
+                                      <a class="badge bg-secondary text-decoration-none link-light rounded-pill" href="#!">보물</a>
+                                      <a class="badge bg-secondary text-decoration-none link-light rounded-pill" href="#!">국보</a>
+                                      <a class="badge bg-secondary text-decoration-none link-light rounded-pill" href="#!">산성</a>
+                                  </p>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img src="../../static/assets/img/wordcloud_img/자연.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                  <p><strong>자연 테마 추천 산</strong> (테마 : 자연 WordCloud)
+                                  <br><br>
+                                      <button type="button" class="btn btn-outline-success">Keyword</button> :
+                                      <a class="badge bg-success text-decoration-none link-light rounded-pill" href="#!">천연기념물</a>
+                                      <a class="badge bg-success text-decoration-none link-light rounded-pill" href="#!">생태계</a>
+                                      <a class="badge bg-success text-decoration-none link-light rounded-pill" href="#!">기암괴석</a>
+                                      <a class="badge bg-success text-decoration-none link-light rounded-pill" href="#!">암벽</a>
+                                  </p>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img src="../../static/assets/img/wordcloud_img/휴식2.png" class="d-block w-100" alt="..."><br><br>
+                              <div class="carousel-caption d-none d-md-block">
+                                  <p><strong>휴식 테마 추천 산</strong> (테마 : 휴식 WordCloud)
+                                  <br><br>
+                                      <button type="button" class="btn btn-outline-info">Keyword</button> :
+                                      <a class="badge bg-info text-decoration-none link-light rounded-pill" href="#!">자연휴양림</a>
+                                      <a class="badge bg-info text-decoration-none link-light rounded-pill" href="#!">국립공원</a>
+                                      <a class="badge bg-info text-decoration-none link-light rounded-pill" href="#!">사찰</a>
+                                      <a class="badge bg-info text-decoration-none link-light rounded-pill" href="#!">온천</a>
+                                  </p>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                        </div>
+                        <br><br><br><br><br><br><br><br>
+                    </article>
+                </div>
+
+                <!-- wordcloud 버튼 -->
+                <!-- comment section-->
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <br><br><br>
+                    <!-- information widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">테마별 추천 Best5</div>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <b>봄</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/48">비슬산</a><br>
+                                                            <a class="dropdown-item" href="/detail/95">화왕산</a><br>
+                                                            <a class="dropdown-item" href="/detail/98">황악산</a><br>
+                                                            <a class="dropdown-item" href="/detail/2">가리산</a><br>
+                                                            <a class="dropdown-item" href="/detail/13">금수산</a>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        <b>여름</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body"><a class="dropdown-item" href="/detail/33">명지산</a><br>
+                                                            <a class="dropdown-item" href="/detail/5">감악산</a><br>
+                                                            <a class="dropdown-item" href="/detail/46">변산</a><br>
+                                                            <a class="dropdown-item" href="/detail/43">삼악산</a><br>
+                                                            <a class="dropdown-item" href="/detail/69">응봉산</a></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                        <b>가을</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/48">비슬산</a><br>
+                                                            <a class="dropdown-item" href="/detail/95">화왕산</a><br>
+                                                            <a class="dropdown-item" href="/detail/13">금수산</a><br>
+                                                            <a class="dropdown-item" href="/detail/72">적상산</a><br>
+                                                            <a class="dropdown-item" href="/detail/6">강천산</a></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                        <b>겨울</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/88">태백산</a><br>
+                                                            <a class="dropdown-item" href="/detail/74">조계산</a><br>
+                                                            <a class="dropdown-item" href="/detail/8">계방산</a><br>
+                                                            <a class="dropdown-item" href="/detail/37">미륵산</a><br>
+                                                            <a class="dropdown-item" href="/detail/1">가야산</a></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                        <b>역사</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/14">금오산</a><br>
+                                                            <a class="dropdown-item" href="/detail/95">화왕산</a><br>
+                                                            <a class="dropdown-item" href="/detail/1">가야산</a><br>
+                                                            <a class="dropdown-item" href="/detail/6">강천산</a><br>
+                                                            <a class="dropdown-item" href="/detail/15">금정산</a></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                        <b>자연</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/21">대암산</a><br>
+                                                            <a class="dropdown-item" href="/detail/27">도봉산</a><br>
+                                                            <a class="dropdown-item" href="/detail/51">선운산</a><br>
+                                                            <a class="dropdown-item" href="/detail/61">용문산</a><br>
+                                                            <a class="dropdown-item" href="/detail/71">재약산</a></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                                        <b>휴식</b>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><a class="dropdown-item" href="/detail/59">오대산</a><br>
+                                                            <a class="dropdown-item" href="/detail/15">금정산</a><br>
+                                                            <a class="dropdown-item" href="/detail/23">덕숭산</a><br>
+                                                            <a class="dropdown-item" href="/detail/39">방장산</a><br>
+                                                            <a class="dropdown-item" href="/detail/42">백암산</a></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MultiCampus DataScience/Engineering 15,16 Team_Matrix</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

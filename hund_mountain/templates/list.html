@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mountain_100:목록 보기</title>
+        {% load static %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/list_styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">100대 명산 정보</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/zoom_1/1">Map</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Information</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/recommend/">Recommendation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-10">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">100대 명산이란?</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-normal mb-2" style="word-break: keep-all;">
+                                <br>
+                                "100대 명산"은 "2002년 세계 산의 해"를 기념하고 산의 가치와 중요성을 새롭게 인식하기 위해 2002년 10월 산림청에서 선정 공표한 대한민국을 대표하는 명산들입니다.<br>
+                                100대 명산에는 국립공원(31)·도립공원(15)·군립공원(10) 지역에서 56개가 선정되었습니다. 또 가리왕산, 운장산, 황악산 등 생태적 가치가 큰 산(16)과 역사, 문화, 경관 등 모든 면에서 우수한 산(28)이 포함되어 있습니다.
+                            </div>
+                            <br>
+                        </header>
+                    </article>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                    <!-- content -->
+                    <section class="mb-5">
+                        <div class="text-info text-start ms-2">자료 출처: 산림청 홈페이지</div>
+                        {% for mountain in mountains %}
+                            <div class="card" style="width: 18rem;  display: inline-block; margin: 0.5rem;">
+                              <img src="../static/assets/mt_img/mt_{{ mountain.id }}.jpg" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
+                              <div class="card-body">
+                                <h5 class="card-title">{{ mountain.name }}</h5>
+                                <p class="card-text">{{ mountain.address }}</p>
+                                <p class="card-text text-muted" style="overflow: hidden; height: 4.2rem;">{{ mountain.description }}</p>
+                                <p class="card-text text-muted" style="margin-top: -1rem; margin-left: 0.2rem;">...</p>
+                                <a href="/detail/{{ mountain.id }}" class="btn btn-primary">자세히 보기</a>
+                              </div>
+                            </div>
+                        {% endfor %}
+                    </section>
+
+                    <!-- </article> -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MultiCampus DataScience/Engineering 15,16 Team_Matrix</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/list_scripts.js' %}"></script>
+    </body>
+</html>
